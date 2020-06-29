@@ -28,6 +28,7 @@ class Ant extends React.Component {
         }
     }
     componentDidMount() {
+        window.localStorage.getItem("auth")==='1'?this.setState({auth:true}):this.setState({auth:false})
     }
     render() {
         return (
