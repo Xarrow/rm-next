@@ -50,13 +50,20 @@ span.rmEn{
   font-family: "Google Sans",sans-serif;
   color:  #282626;
 }
+
+div.Ant{
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+}
 div.testFont{
+
   color: #000000;
   font-size: 50px;
   font-family: "Google Sans",sans-serif;
+  
 
 }
-
 
 /* Adding CSS manually is only necessary in JSFiddle,
    where CSS can't be inserted into the <head> */
