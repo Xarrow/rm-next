@@ -1,50 +1,72 @@
 import React from 'react';
-import Typed from 'typed.js';
-import { HandleAuth} from '../components/SimpleAuth';
-class Home extends React.Component {
-  constructor(props){
-    super()   
-  }
- 
-  componentDidMount(){
-    HandleAuth()
+import { Modal, Button, Form, Input, message } from 'antd';
+import LoveRm from '../components/LoveRm';
 
-    const strings =[
-      '<span class="rm">一天',
-      '<span class="rm">一天 \n在想念中结束</span>',
-      '<span class="rm">一天 \n在想念中结束\n在<span class="sinian">想念</span>中<strong>开始</strong></span>',
-      '<span class="rm">你是我的\n阳光</span>',
-      '<span class="rm">你是我的\n黑夜</span>',
-      '<span class="rm">始终\n有你</span>',
-      '<span class="rm">瑞梅</span>',
-      '<span class="rm"><strong><span class="rui">瑞</span><span class="mei">梅</span>,</strong>我<span class="ai">爱</span>你\n</span><span class="rmEn"><span class="ai">Stay</span> With You\nForever !</span>'
-    ];
+class Ant extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            auth: false
+        }
+        this.onFinish = this.onFinish.bind(this)
 
-    const strings2 =[
-      '<span class="rm"><span class="sinian">梅花香自苦寒\n瑞雪兆丰年</span><strong>开始</strong></span>',
-    ];
-    const options = {
-    	strings:strings,
-      typeSpeed: 100,
-      backSpeed: 50,
-      loop:false,
-      cursorChar:'❤'
-    };
-    // this.el refers to the <span> in the render() method
-    this.typed = new Typed(this.el, options);
-  }
-  render(){
-    return (
-      <div className="container">
-        <div className="type-wrap">
-
-          <span
-            style={{ whiteSpace: 'pre' }}
-            ref={(el) => { this.el = el; }} 
-          />
-        </div>
-      </div>
-    )
-  }
+    }
+    onFinish(data) {
+        console.log(`${data.Name} ==> ${data.Birth}`)
+        if (data.Birth === '19931226') {
+            this.setState({ auth: true })
+            window.localStorage.setItem("auth", "1");
+            message.success("今天又是爱瑞梅的一天~")
+        } else {
+            const errorRainbowFart = [
+                '我已经看不下去了~',
+                '好弱啊~',
+                '放弃吧，老老实实问她吧~',
+                '来来来，我来告诉你~',
+                '连她的生日都记不住,垃圾~']
+            message.error(errorRainbowFart[Math.floor(Math.random() * errorRainbowFart.length)])
+        }
+    }
+    componentDidMount() {
+    }
+    render() {
+        return (
+            <div>
+                {this.state.auth ? (
+                    <LoveRm />
+                ) : (
+                        <div className="Ant">
+                            <Modal
+                                title="Hello RuiMei"
+                                visible={!this.state.auth}
+                                closable={false}
+                                footer={[]}
+                                onOk={this.handleOk}
+                            >
+                                <Form
+                                    onFinish={this.onFinish}>
+                                    <Form.Item label="你的名字" name="Name" rules={[{
+                                        required: true,
+                                        message: "你的名字"
+                                    }]}>
+                                        <Input placeholder={"访客名字"} />
+                                    </Form.Item>
+                                    <Form.Item label="瑞梅生日" name="Birth" rules={[{
+                                        required: true,
+                                        message: "瑞梅的生日也要填哟~"
+                                    }]}>
+                                        <Input placeholder={"譬如 19940101 格式 ， 填对方可让你进去哟"} />
+                                    </Form.Item>
+                                    <Form.Item>
+                                        <Button type="primary" htmlType="submit">Let Me In</Button>
+                                    </Form.Item>
+                                </Form>
+                            </Modal>
+                        </div>
+                    )}
+            </div>
+        )
+    }
 }
-export default Home
+
+export default Ant;
