@@ -1,10 +1,14 @@
 import React from 'react';
 import Typed from 'typed.js';
-import { SmileTwoTone, HeartTwoTone, CheckCircleTwoTone } from '@ant-design/icons';
-
-
+import { HandleAuth} from '../components/SimpleAuth';
 class Home extends React.Component {
+  constructor(props){
+    super()   
+  }
+ 
   componentDidMount(){
+    HandleAuth()
+
     const strings =[
       '<span class="rm">一天',
       '<span class="rm">一天 \n在想念中结束</span>',
