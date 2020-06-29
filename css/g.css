@@ -1,9 +1,14 @@
 html{
     height:100%;
+    
 }
 body{
     background-color: #fad2e3;
     color: #131629;
+    opacity: 0.8;
+    background-image:url("/static/img/geometry2.png");
+    background-attachment: fixed;
+    text-rendering: optimizeLegibility;
 }
 div.container{
     position: absolute;
@@ -21,6 +26,35 @@ div.sayLove{
 
 div.sayLoveEn{
     font-size: large;
+}
+
+span.rui{
+  color: #4885ed;
+}
+span.mei{
+  color: #f4c20d	;
+}
+span.ai{
+  color: #db3236;
+}
+span.sinian{
+  color: #db3236;
+}
+span.rm {
+  /* font-family: "Google Sans",sans-serif; */
+  font-family: 'Noto Serif SC', serif;
+  color:  #282626;
+}
+
+span.rmEn{
+  font-family: "Google Sans",sans-serif;
+  color:  #282626;
+}
+div.testFont{
+  color: #000000;
+  font-size: 50px;
+  font-family: "Google Sans",sans-serif;
+
 }
 
 
@@ -45,17 +79,4 @@ div.sayLoveEn{
     transition: opacity .25s;
     -webkit-animation: 0;
     animation: 0;
-  }
-
-  span.rui{
-    color: #4885ed;
-  }
-  span.mei{
-    color: #f4c20d	;
-  }
-  span.ai{
-    color: #db3236;
-  }
-  span.sinian{
-    color: #db3236;
   }

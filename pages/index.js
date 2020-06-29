@@ -6,13 +6,23 @@ import { SmileTwoTone, HeartTwoTone, CheckCircleTwoTone } from '@ant-design/icon
 class Home extends React.Component {
   componentDidMount(){
     const strings =[
-      '一天\n在想念中结束\n在<span class="sinian">想念</span>中<strong>开始</strong>','你是我全部的时光',
-      '<strong><span class="rui">瑞</span><span class="mei">梅</span>,</strong>我<span class="ai">爱</span>你\nRuiMei. I <span class="ai">Love</span> You\nForever !'
+      '<span class="rm">一天',
+      '<span class="rm">一天 \n在想念中结束</span>',
+      '<span class="rm">一天 \n在想念中结束\n在<span class="sinian">想念</span>中<strong>开始</strong></span>',
+      '<span class="rm">你是我的\n阳光</span>',
+      '<span class="rm">你是我的\n黑夜</span>',
+      '<span class="rm">始终\n有你</span>',
+      '<span class="rm">瑞梅</span>',
+      '<span class="rm"><strong><span class="rui">瑞</span><span class="mei">梅</span>,</strong>我<span class="ai">爱</span>你\n</span><span class="rmEn"><span class="ai">Stay</span> With You\nForever !</span>'
+    ];
+
+    const strings2 =[
+      '<span class="rm"><span class="sinian">梅花香自苦寒\n瑞雪兆丰年</span><strong>开始</strong></span>',
     ];
     const options = {
     	strings:strings,
       typeSpeed: 100,
-      backSpeed: 100,
+      backSpeed: 50,
       loop:false,
       cursorChar:'❤'
     };
@@ -29,11 +39,6 @@ class Home extends React.Component {
             ref={(el) => { this.el = el; }} 
           />
         </div>
-        {/* 
-        <div className="sayLove"> 我爱你，瑞梅  </div>
-        <div> </div>
-        <div className="sayLoveEn">Love you forever</div>
-        */ }
       </div>
     )
   }
