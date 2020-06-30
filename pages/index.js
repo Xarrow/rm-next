@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head'
 import { Modal, Button, Form, Input, message } from 'antd';
 import LoveRm from '../components/LoveRm';
 
@@ -33,6 +34,9 @@ class Ant extends React.Component {
     render() {
         return (
             <div>
+                <Head>
+                    <title>瑞梅</title>
+                </Head>
                 {this.state.auth ? (
                     <LoveRm />
                 ) : (
