@@ -20,30 +20,20 @@ div.container{
     height:90% ;
     font-size: 50px;
 }
-div.sayLove{
-    font-size: 50px;
-}
 
-div.sayLoveEn{
-    font-size: large;
-}
-
-span.rui{
+span.mei{
   color: #4885ed;
 }
-span.mei{
+span.rui{
   color: #f4c20d	;
 }
 span.ai{
   color: #db3236;
 }
-span.sinian{
-  color: #db3236;
-}
 span.rm {
-  /* font-family: "Google Sans",sans-serif; */
   font-family: 'Noto Serif SC', serif;
   color:  #282626;
+  height: 100%;
 }
 
 span.rmEn{
@@ -51,19 +41,28 @@ span.rmEn{
   color:  #282626;
 }
 
+span.sinian{
+  color: #db3236;
+}
+span.kaishi{
+  color: #3cba54;
+}
+span.bigger{
+  font-size: 60px;
+  font-weight: 500;
+}
+
+div.bullet{
+  z-index: 9999;
+  position: absolute;
+  width: 100%;
+}
 div.Ant{
   display: flex;
   justify-content: center; /* 水平居中 */
   align-items: center;     /* 垂直居中 */
 }
-div.testFont{
-
-  color: #000000;
-  font-size: 50px;
-  font-family: "Google Sans",sans-serif;
-  
-
-}
+ @import url('https://g.zeit.fun/fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap');
 
 /* Adding CSS manually is only necessary in JSFiddle,
    where CSS can't be inserted into the <head> */

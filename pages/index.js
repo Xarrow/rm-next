@@ -29,13 +29,14 @@ class Ant extends React.Component {
         }
     }
     componentDidMount() {
-        window.localStorage.getItem("auth")==='1'?this.setState({auth:true}):this.setState({auth:false})
+        window.localStorage.getItem("auth") === '1' ? this.setState({ auth: true }) : this.setState({ auth: false })
+        console.log("I Am in index.js")
     }
     render() {
         return (
             <div>
                 <Head>
-                    <title>瑞梅</title>
+                    <title>健❤瑞梅</title>
                 </Head>
                 {this.state.auth ? (
                     <LoveRm />
@@ -60,7 +61,7 @@ class Ant extends React.Component {
                                         required: true,
                                         message: "瑞梅的生日也要填哟~"
                                     }]}>
-                                        <Input placeholder={"譬如 19940101 格式 ， 填对方可让你进去哟"} />
+                                        <Input placeholder={"譬如 19940101 格式"} />
                                     </Form.Item>
                                     <Form.Item>
                                         <Button type="primary" htmlType="submit">Let Me In</Button>
