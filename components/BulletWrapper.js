@@ -1,31 +1,63 @@
-import Bullet from 'react-bullet-screen';
-import React, { useState } from 'react'
+import Bullet from './Bullet';
+import React from 'react'
+import { Input } from 'antd';
 
-const text = [
-    '我是第一条弹幕',
-    '我是第二条弹幕啊',
-    '我是第三条弹幕啊啊',
-    '我是第四条弹幕啊啊啊',
-    '我是第五条弹幕啊啊啊啊',
-]
+const { Search } = Input;
 
 export default class BulletWrapper extends React.Component {
-    render() {
+    constructor(props){
+        super(props);
+        this.state = {word:""}
+        this.launch = this.launch.bind(this)
+    }
 
+    launch(dan){
+        console.log(dan)
+        console.log(dan==="")
+        if (""===dan){
+            return;
+        }
+        // let index = this.hashCode(dan)%7
+        let index = new Date().getTime()%7;
+        if(index<0){
+            index = Math.abs(index)
+        }
+        this.setState({rowIndex:index})
+        this.setState({word:dan})
+    }
+    hashCode(s) {
+        var h = 0, l = s.length, i = 0;
+        if ( l > 0 )
+          while (i < l)
+            h = (h << 5) - h + s.charCodeAt(i++) | 0;
+        return h;
+    }
+    render() {
         const renderBulletItem = (item) => {
             return <div className="item">{item}</div>
         }
         return (
-            <div className="bullet">
-                <Bullet
-                    data={text}
-                    renderItem={renderBulletItem}
-                    speed={50}
-                    row={3}
-                    rowHeight={40}
-                    spacing={120}
-                />
-            </div>
+            <>
+                <div className="bullet">
+                    <Bullet
+                        word={this.state.word}
+                        rowIndex={this.state.rowIndex}
+                        renderItem={renderBulletItem}
+                        speed={50}
+                        row={7}
+                        rowHeight={40}
+                        spacing={120}
+                    />
+                </div>
+                <div className="launch">
+                    <Search
+                        placeholder="输入弹幕"
+                        enterButton="发射"
+                        size="large"
+                        onSearch={this.launch}
+                    />
+                </div>
+            </>
         )
     }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head'
 import { Modal, Button, Form, Input, message } from 'antd';
 import LoveRm from '../components/LoveRm';
+import BullectWrapper from '../components/BulletWrapper';
 
 class Ant extends React.Component {
     constructor(props) {
@@ -36,10 +37,11 @@ class Ant extends React.Component {
         return (
             <div>
                 <Head>
-                    <title>健❤瑞梅</title>
+                    <title>JRM</title>
                 </Head>
                 {this.state.auth ? (
-                    <LoveRm />
+                    // <LoveRm />
+                    <BullectWrapper />
                 ) : (
                         <div className="Ant">
                             <Modal

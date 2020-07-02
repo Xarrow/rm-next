@@ -14,7 +14,6 @@
     "firebase-admin": "^8.13.0",
     "next": "^9.3.3",
     "react": "^16.13.0",
-    "react-bullet-screen": "^0.1.1",
     "react-dom": "^16.13.0",
     "typed.js": "^2.0.11"
   },
