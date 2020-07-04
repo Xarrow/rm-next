@@ -3,19 +3,44 @@ import React from 'react'
 import { Input } from 'antd';
 
 const { Search } = Input;
+const action = function (type, timeline,words) {
+    return JSON.stringify({
+        type,
+        timeline,
+        words,
+    });
+}
 
 export default class BulletWrapper extends React.Component {
     constructor(props){
         super(props);
-        this.state = {word:""}
+        this.state = {word:"",ws:false}
         this.launch = this.launch.bind(this)
+        this.ws = undefined;
+        
+    }
+
+    componentDidMount(){
+        this.ws = new WebSocket('ws://127.0.0.1:8080/launch')
+        this.ws.onopen = function(data){
+            console.log("ws open")
+        }
+        const startTimeStamp = new Date().getTime()
+        this.setState({startTimeStamp:startTimeStamp})
     }
 
     launch(dan){
+        const timeline = new Date().getTime()-this.state.startTimeStamp
         console.log(dan)
         console.log(dan==="")
         if (""===dan){
             return;
+        }
+        
+        // ws has open
+        this.ws.send(action(0,timeline,dan));
+        if(this.state.ws){
+            
         }
         // let index = this.hashCode(dan)%7
         let index = new Date().getTime()%7;
