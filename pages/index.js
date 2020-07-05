@@ -40,8 +40,8 @@ class Ant extends React.Component {
                     <title>JRM</title>
                 </Head>
                 {this.state.auth ? (
-                    // <LoveRm />
-                    <BullectWrapper />
+                    <LoveRm />
+                    // <BullectWrapper />
                 ) : (
                         <div className="Ant">
                             <Modal
