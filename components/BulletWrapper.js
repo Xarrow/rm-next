@@ -1,6 +1,6 @@
-import Bullet from './Bullet';
-import React from 'react'
-import { Input } from 'antd';
+import Bullet from "./Bullet";
+import React from "react";
+import { Input } from "antd";
 
 const { Search } = Input;
 const action = function (type, timeline,words) {
@@ -12,6 +12,7 @@ const action = function (type, timeline,words) {
 }
 
 export default class BulletWrapper extends React.Component {
+<<<<<<< HEAD
     constructor(props){
         super(props);
         this.state = {word:"",ws:false}
@@ -56,33 +57,56 @@ export default class BulletWrapper extends React.Component {
           while (i < l)
             h = (h << 5) - h + s.charCodeAt(i++) | 0;
         return h;
+=======
+  constructor(props) {
+    super(props);
+    // 记录页面打开时间
+    this.state = { word: "", startTime: new Date().getTime() };
+    this.launch = this.launch.bind(this);
+  }
+
+  launch(dan) {
+    if ("" === dan) {
+      return;
+>>>>>>> 6858c2191c70a166a065b28669c40c6895743534
     }
-    render() {
-        const renderBulletItem = (item) => {
-            return <div className="item">{item}</div>
-        }
-        return (
-            <>
-                <div className="bullet">
-                    <Bullet
-                        word={this.state.word}
-                        rowIndex={this.state.rowIndex}
-                        renderItem={renderBulletItem}
-                        speed={50}
-                        row={7}
-                        rowHeight={40}
-                        spacing={120}
-                    />
-                </div>
-                <div className="launch">
-                    <Search
-                        placeholder="输入弹幕"
-                        enterButton="发射"
-                        size="large"
-                        onSearch={this.launch}
-                    />
-                </div>
-            </>
-        )
+    let index = new Date().getTime() % 7;
+    if (index < 0) {
+      index = Math.abs(index);
     }
+    this.setState({ rowIndex: index });
+    this.setState({ word: dan });
+
+    // 记录发送时间
+    // 保存 firebase ,(launchTime-startTime) ===> word
+    const timeLine = new Date().getTime()-this.state.startTime;
+  }
+  render() {
+    const renderBulletItem = (item) => {
+      return <div className="item">{item}</div>;
+    };
+    return (
+      <>
+        <div className="bullet">
+          <Bullet
+            word={this.state.word}
+            rowIndex={this.state.rowIndex}
+            renderItem={renderBulletItem}
+            speed={50}
+            row={7}
+            rowHeight={40}
+            spacing={120}
+          />
+        </div>
+        <div className="launch">
+          <Search
+            placeholder="输入弹幕"
+            enterButton="发射"
+            size="large"
+            onSearch={this.launch}
+          />
+        </div>
+      </>
+    );
+  }
 }
