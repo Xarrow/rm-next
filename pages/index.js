@@ -38,7 +38,7 @@ class Ant extends React.Component {
         return (
             <div>
                 <Head>
-                    <title>JRM</title>
+                    <title>健❤瑞梅</title>
                 </Head>
                 <GithubBranch />
                 <div>
