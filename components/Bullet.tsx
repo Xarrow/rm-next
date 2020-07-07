@@ -84,7 +84,9 @@ class Bullet extends PureComponent<BulletProps, {}> {
     div.style.borderRadius = "15px";
     div.style.padding = "0px 12px";
     div.style.color = "#ffff";
+    div.style.boxShadow=`0px 0px 10px ${itemBackgroupColor}`
     div.style.fontSize = "15px";
+    div.style.fontFamily="Google Sans"
 
     const handleTransitionEnd = () => {
       // 弹幕运动完成后移除监听，清除弹幕

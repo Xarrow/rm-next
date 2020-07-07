@@ -11,51 +11,44 @@ const action = function (type, timeline, words) {
   });
 };
 
-const googleColorRgba = ["#3cba54", "#f4c20d", "#db3236", "#4885ed"];
-const LAUNCH = 1;
+const BROADCAST_FLAG = 0;
+const P2P_FLAG = 1;
+// process
+const INIT = 0;
+const MESSAGE = 1;
 const HEARTBEAT = 2;
 
+const googleColorRgba = ["#3cba54", "#f4c20d", "#db3236", "#4885ed"];
+
 export default class BulletWrapper extends React.Component {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    constructor(props){
-        super(props);
-        this.state = {word:"",ws:false}
-        this.launch = this.launch.bind(this)
-        this.ws = undefined;
-        
-    }
-=======
   constructor(props) {
     super(props);
-    this.state = { word: "", ws: false, row: 7 };
+    this.state = { word: "", row: 7 };
+    this.print = this.print.bind(this);
     this.launch = this.launch.bind(this);
     this.handleMessage = this.handleMessage.bind(this);
-    this.print = this.print.bind(this);
+    this.heartbeart = this.heartbeart.bind(this)
+
     this.ws = undefined;
   }
->>>>>>> 2b01025c333ec2cef92716edeaed6de7ee6d0208
 
   componentDidMount() {
-    this.ws = new WebSocket("ws://127.0.0.1:8080/launch");
-    this.ws.onopen = function (data) {
-      console.log("ws open");
+    this.ws = new WebSocket("wss://rm2springboot.herokuapp.com/launch");
+    this.ws.onopen = (data) => {
+      // 初始化
+      this.ws.send(action(INIT, 0, ""))
+      console.log("ws open")
+      // 监听消息
+      this.handleMessage()
+      // 心跳
+      this.heartbeart()
     };
 
-    // 监听消息
-    this.handleMessage();
+
 
     // 记录页面打开时间
     const startTimeStamp = new Date().getTime();
     this.setState({ startTimeStamp: startTimeStamp });
-
-    setTimeout(() => {
-      this.print("你好");
-    }, 1);
-
-    setTimeout(() => {
-      this.print("你好1");
-    }, 1);
   }
 
   print(data) {
@@ -64,74 +57,61 @@ export default class BulletWrapper extends React.Component {
     if (index < 0) {
       index = Math.abs(index);
     }
-<<<<<<< HEAD
-    hashCode(s) {
-        var h = 0, l = s.length, i = 0;
-        if ( l > 0 )
-          while (i < l)
-            h = (h << 5) - h + s.charCodeAt(i++) | 0;
-        return h;
-=======
-  constructor(props) {
-    super(props);
-    // 记录页面打开时间
-    this.state = { word: "", startTime: new Date().getTime() };
-    this.launch = this.launch.bind(this);
-  }
-
-  launch(dan) {
-    if ("" === dan) {
-      return;
->>>>>>> 6858c2191c70a166a065b28669c40c6895743534
-    }
-    let index = new Date().getTime() % 7;
-    if (index < 0) {
-      index = Math.abs(index);
-    }
-    this.setState({ rowIndex: index });
-    this.setState({ word: dan });
-
-    // 记录发送时间
-    // 保存 firebase ,(launchTime-startTime) ===> word
-    const timeLine = new Date().getTime()-this.state.startTime;
-=======
     // 弹幕背景
-    const itemBackgroupColor =
-      googleColorRgba[timestamp % googleColorRgba.length];
-    console.log(`${timestamp} ==> ${itemBackgroupColor}`);
+    const itemBackgroupColor = googleColorRgba[timestamp % googleColorRgba.length];
     this.setState({
       rowIndex: index,
       word: data,
       itemBackgroupColor: itemBackgroupColor,
     });
   }
+
+  heartbeart() {
+    setInterval(() => {
+      this.ws.send(action(HEARTBEAT, 0, ""))
+    }, 3000)
+  }
+
   launch(dan) {
     const timeline = new Date().getTime() - this.state.startTimeStamp;
     if ("" === dan) {
       return;
     }
-    this.print(dan);
-
-    if (this.ws.state !== WebSocket.OPEN) {
-      return;
-    }
-    // ws has open
-    // send to ws
-    this.ws.send(action(0, timeline, dan));
+    this.ws.send(action(MESSAGE, timeline, dan));
   }
 
+  // 监听消息
   handleMessage() {
-    if (this.ws.state === WebSocket.OPEN) {
-      this.ws.onmessage = function (data) {
-        if (!data) {
-          return;
-        }
-        data.array.forEach((element) => {
-          this.print(element);
-        });
-      };
-    }
->>>>>>> 2b01025c333ec2cef92716edeaed6de7ee6d0208
+    this.ws.onmessage = (event) => {
+      let data = event.data
+      if (!data) {
+        return
+      }
+      data = JSON.parse(data)
+      switch (data.type) {
+        case INIT:
+          break;
+        // 报文返回
+        case MESSAGE:
+          switch (data.source) {
+            // 广播内容立马打印
+            case BROADCAST_FLAG:
+              this.print(data.words)
+              break;
+            case P2P_FLAG:
+              // P2P 广播按照时间超时
+              setTimeout(() => {
+                this.print(data.words)
+              }, data.timeline)
+              break;
+          }
+
+          break;
+        case HEARTBEAT:
+          break
+      }
+
+    };
   }
   render() {
     const renderBulletItem = (item) => {
@@ -141,19 +121,12 @@ export default class BulletWrapper extends React.Component {
       <>
         <div className="bullet">
           <Bullet
-<<<<<<< HEAD
-=======
             itemBackgroupColor={this.state.itemBackgroupColor}
->>>>>>> 2b01025c333ec2cef92716edeaed6de7ee6d0208
             word={this.state.word}
             rowIndex={this.state.rowIndex}
             renderItem={renderBulletItem}
             speed={50}
-<<<<<<< HEAD
-            row={7}
-=======
             row={this.state.row}
->>>>>>> 2b01025c333ec2cef92716edeaed6de7ee6d0208
             rowHeight={40}
             spacing={120}
           />

@@ -1,6 +1,5 @@
 html{
     height:100%;
-    
 }
 body{
     background-color: #fad2e3;
@@ -61,7 +60,9 @@ div.bullet{
 div.launch{
   z-index: 9999;
   position: absolute;
-  width: 20%;
+  width: 80%;
+  margin: 10px;
+  margin-top: 580px;
 }
 
 /* div.item{
@@ -103,3 +104,51 @@ div.Ant{
     -webkit-animation: 0;
     animation: 0;
   }
+
+  /* bullet  弹幕屏*/
+
+div.bullet{
+margin-top: 60px;
+  }
+/*  github branch css */
+div.github-branch{
+  z-index: 99999;
+}
+path.octo-arm {
+  transform-origin: 130px 106px;
+}
+
+svg.github-svg {
+  fill: #151513;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  border: 0;
+  right: 0;
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave {
+  0%, 100% {
+      transform: rotate(0)
+  }
+  20%, 60% {
+      transform: rotate(-25deg)
+  }
+  40%, 80% {
+      transform: rotate(10deg)
+  }
+}
+
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+      animation: none
+  }
+
+  .github-corner .octo-arm {
+      animation: octocat-wave 560ms ease-in-out
+  }
+}

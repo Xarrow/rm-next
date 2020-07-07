@@ -17,13 +17,15 @@ class LoveRm extends React.Component {
       '<span class="rm">朝 <span class="bigger">夕</span>\n   <span class="bigger">相</span> 处</span>',
       '<span class="rm">一点一滴</span>',
       '<span class="rm">你 <span class="bigger">撅嘴</span> 时自拍</span>',
-      '<span class="rm">你爱夹菜时\n   和筷子<img src="/static/img/chop.png"/> <span class="bigger">较劲</span></span>',
+      '<span class="rm">你夹菜时\n   和筷子<img src="/static/img/chop.png"/> <span class="bigger">较劲</span></span>',
       '<span class="rm">你外冷内热\n <span class="bigger">「 个性 」</span></span>',
       '<span class="rm">你\n<span class="bigger">「努力生气」</span></strong>\n样子</span>',
       '<span class="rm">你的一切\n<span class="bigger">「可爱😋」</span>\n......</span>',
-      '<span class="rm">全都深融我心</span>',
-      '<span class="rm">我会一直好好\n<span class="bigger">「守护」</span>你</span>',
-      '<span class="rm"><span class="wo">我<span class="ai bigger"> 爱 </span>你,瑞梅\n</span><span class="rmEn"><span class="ai">Stay</span> With You\nForever !</span>'
+      '<span class="rm">深融我心中</span>',
+      '<span class="rm">我 ! ! !</span>',
+      '<span class="rm">无所畏惧</span>',
+      '<span class="rm">一往无前</span>',
+      '<span class="rm"><span class="wo">我<span class="ai bigger"> 喜欢 </span>你,瑞梅\n</span><span class="rmEn"><span class="ai">Stay</span> With You\nForever !</span>'
     ];
     const options = {
       strings: strings,

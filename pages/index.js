@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Modal, Button, Form, Input, message } from 'antd';
 import LoveRm from '../components/LoveRm';
 import BullectWrapper from '../components/BulletWrapper';
+import GithubBranch from '../components/GithubBranch';
 
 class Ant extends React.Component {
     constructor(props) {
@@ -39,40 +40,44 @@ class Ant extends React.Component {
                 <Head>
                     <title>JRM</title>
                 </Head>
-                {this.state.auth ? (
-                    <LoveRm />
-                    // <BullectWrapper />
-                ) : (
-                        <div className="Ant">
-                            <Modal
-                                title="Hello RuiMei"
-                                visible={!this.state.auth}
-                                closable={false}
-                                footer={[]}
-                                onOk={this.handleOk}
-                            >
-                                <Form
-                                    onFinish={this.onFinish}>
-                                    <Form.Item label="你的名字" name="Name" rules={[{
-                                        required: true,
-                                        message: "你的名字"
-                                    }]}>
-                                        <Input placeholder={"访客名字"} />
-                                    </Form.Item>
-                                    <Form.Item label="瑞梅生日" name="Birth" rules={[{
-                                        required: true,
-                                        message: "瑞梅的生日也要填哟~"
-                                    }]}>
-                                        <Input placeholder={"譬如 19940101 格式"} />
-                                    </Form.Item>
-                                    <Form.Item>
-                                        <Button type="primary" htmlType="submit">Let Me In</Button>
-                                    </Form.Item>
-                                </Form>
-                            </Modal>
-                        </div>
-                    )}
+                <GithubBranch />
+                <div>
+                    {this.state.auth ? (
+                        <LoveRm />
+                        // <BullectWrapper />
+                    ) : (
+                            <div className="Ant">
+                                <Modal
+                                    title="Hello RuiMei"
+                                    visible={!this.state.auth}
+                                    closable={false}
+                                    footer={[]}
+                                    onOk={this.handleOk}
+                                >
+                                    <Form
+                                        onFinish={this.onFinish}>
+                                        <Form.Item label="你的名字" name="Name" rules={[{
+                                            required: true,
+                                            message: "你的名字"
+                                        }]}>
+                                            <Input placeholder={"访客名字"} />
+                                        </Form.Item>
+                                        <Form.Item label="瑞梅生日" name="Birth" rules={[{
+                                            required: true,
+                                            message: "瑞梅的生日也要填哟~"
+                                        }]}>
+                                            <Input placeholder={"譬如 19940101 格式"} />
+                                        </Form.Item>
+                                        <Form.Item>
+                                            <Button type="primary" htmlType="submit">Let Me In</Button>
+                                        </Form.Item>
+                                    </Form>
+                                </Modal>
+                            </div>
+                        )}
+                </div>
             </div>
+
         )
     }
 }
