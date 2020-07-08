@@ -1,68 +1,75 @@
-html{
-    height:100%;
+html {
+    height: 100%;
 }
-body{
+
+body {
     background-color: #fad2e3;
     color: #131629;
     opacity: 0.8;
-    background-image:url("/static/img/geometry2.png");
+    background-image: url("/static/img/geometry2.png");
     background-attachment: fixed;
     text-rendering: optimizeLegibility;
 }
-div.container{
+
+div.container {
     position: absolute;
     margin: 10px;
     display: flex;
     justify-content: center; /* 水平居中 */
-    align-items: center;     /* 垂直居中 */
-    width:90%;
-    height:90% ;
+    align-items: center; /* 垂直居中 */
+    width: 90%;
+    height: 90%;
     font-size: 50px;
 }
 
-span.mei{
-  color: #4885ed;
+span.mei {
+    color: #4885ed;
 }
-span.rui{
-  color: #f4c20d	;
+
+span.rui {
+    color: #f4c20d;
 }
-span.ai{
-  color: #db3236;
+
+span.ai {
+    color: #db3236;
 }
+
 span.rm {
-  font-family: 'Noto Serif SC', serif;
-  color:  #282626;
-  height: 100%;
+    font-family: 'Noto Serif SC', serif;
+    color: #282626;
+    height: 100%;
 }
 
-span.rmEn{
-  font-family: "Google Sans",sans-serif;
-  color:  #282626;
+span.rmEn {
+    font-family: "Google Sans", sans-serif;
+    color: #282626;
 }
 
-span.sinian{
-  color: #db3236;
-}
-span.kaishi{
-  color: #3cba54;
-}
-span.bigger{
-  font-size: 60px;
-  font-weight: 500;
+span.sinian {
+    color: #db3236;
 }
 
-div.bullet{
-  z-index: 9999;
-  position: absolute;
-  width: 100%;
+span.kaishi {
+    color: #3cba54;
 }
 
-div.launch{
-  z-index: 9999;
-  position: absolute;
-  width: 80%;
-  margin: 10px;
-  margin-top: 580px;
+span.bigger {
+    font-size: 60px;
+    font-weight: 500;
+}
+
+div.bullet {
+    z-index: 9999;
+    position: absolute;
+    width: 100%;
+}
+
+div.launch {
+    z-index: 9999;
+    position: absolute;
+    margin: 10px;
+    margin-top: 50px;
+    width: 90%;
 }
 
 /* div.item{
@@ -75,80 +82,94 @@ div.launch{
     border-radius: 12px;
   
 } */
-div.Ant{
-  display: flex;
-  justify-content: center; /* 水平居中 */
-  align-items: center;     /* 垂直居中 */
+div.Ant {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
 }
- @import url('https://g.zeit.fun/fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap');
+
+/*@import url('https://g.zeit.fun/fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap');*/
 
 /* Adding CSS manually is only necessary in JSFiddle,
    where CSS can't be inserted into the <head> */
-   .typed-cursor{
+.typed-cursor {
     opacity: 1;
     animation: typedjsBlink 0.7s infinite;
     -webkit-animation: typedjsBlink 0.7s infinite;
     animation: typedjsBlink 0.7s infinite;
-  }
-  @keyframes typedjsBlink{
-    50% { opacity: 0.0; }
-  }
-  @-webkit-keyframes typedjsBlink{
-    0% { opacity: 1; }
-    50% { opacity: 0.0; }
-    100% { opacity: 1; }
-  }
-  .typed-fade-out{
+}
+
+@keyframes typedjsBlink {
+    50% {
+        opacity: 0.0;
+    }
+}
+
+@-webkit-keyframes typedjsBlink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.typed-fade-out {
     opacity: 0;
     transition: opacity .25s;
     -webkit-animation: 0;
     animation: 0;
-  }
-
-  /* bullet  弹幕屏*/
-
-div.bullet{
-margin-top: 60px;
-  }
-/*  github branch css */
-div.github-branch{
-  z-index: 99999;
 }
+
+/* bullet  弹幕屏*/
+
+div.bullet {
+    margin-top: 60px;
+}
+
+/*  github branch css */
+div.github-branch {
+    z-index: 99999;
+}
+
 path.octo-arm {
-  transform-origin: 130px 106px;
+    transform-origin: 130px 106px;
 }
 
 svg.github-svg {
-  fill: #151513;
-  color: #fff;
-  position: absolute;
-  top: 0;
-  border: 0;
-  right: 0;
+    fill: #151513;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    border: 0;
+    right: 0;
 }
 
 .github-corner:hover .octo-arm {
-  animation: octocat-wave 560ms ease-in-out
+    animation: octocat-wave 560ms ease-in-out
 }
 
 @keyframes octocat-wave {
-  0%, 100% {
-      transform: rotate(0)
-  }
-  20%, 60% {
-      transform: rotate(-25deg)
-  }
-  40%, 80% {
-      transform: rotate(10deg)
-  }
+    0%, 100% {
+        transform: rotate(0)
+    }
+    20%, 60% {
+        transform: rotate(-25deg)
+    }
+    40%, 80% {
+        transform: rotate(10deg)
+    }
 }
 
 @media (max-width: 500px) {
-  .github-corner:hover .octo-arm {
-      animation: none
-  }
+    .github-corner:hover .octo-arm {
+        animation: none
+    }
 
-  .github-corner .octo-arm {
-      animation: octocat-wave 560ms ease-in-out
-  }
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
 }
