@@ -53,7 +53,7 @@ export default class BulletWrapper extends React.Component {
 
   print(data) {
     const timestamp = new Date().getTime();
-    const index = timestamp % this.state.row;
+    let index = timestamp % this.state.row;
     if (index < 0) {
       index = Math.abs(index);
     }
