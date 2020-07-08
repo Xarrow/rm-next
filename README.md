@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
 
 ## Design
-![img](./弹幕系统.png)
+![img](./design.png)
 
 ## Getting Started
 
