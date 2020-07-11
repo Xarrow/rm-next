@@ -1,5 +1,6 @@
-html {
+html ,body{
     height: 100%;
+    width: 100%;
 }
 
 body {
@@ -12,13 +13,13 @@ body {
 }
 
 div.container {
-    position: absolute;
-    margin: 10px;
     display: flex;
     justify-content: center; /* 水平居中 */
     align-items: center; /* 垂直居中 */
-    width: 90%;
-    height: 90%;
+    position: absolute;
+    margin: 10px;
+    width: 98%;
+    height: 700px;
     font-size: 50px;
 }
 
@@ -50,18 +51,12 @@ span.sinian {
 }
 
 span.kaishi {
-    color: #3cba54;
+    color: #db3236;
 }
 
 span.bigger {
     font-size: 60px;
     font-weight: 500;
-}
-
-div.bullet {
-    z-index: 9999;
-    position: absolute;
-    width: 100%;
 }
 
 div.launch {
@@ -70,6 +65,12 @@ div.launch {
     margin: 10px;
     margin-top: 50px;
     width: 90%;
+}
+
+.spin{
+    z-index: 9999;
+    position:absolute;
+    margin-top: 25%;
 }
 
 /* div.item{
@@ -127,7 +128,10 @@ div.Ant {
 /* bullet  弹幕屏*/
 
 div.bullet {
-    margin-top: 60px;
+    margin-top: 120px;
+    z-index: 9999;
+    position: absolute;
+    width: 100%;
 }
 
 /*  github branch css */

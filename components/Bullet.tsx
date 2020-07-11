@@ -74,7 +74,7 @@ class Bullet extends PureComponent<BulletProps, {}> {
     const { renderItem, rowHeight } = this.props;
     const div = document.createElement("div");
 
-    div.classList.add("bullet-item");
+    div.classList.add("bulletreact-bullet-screen-item");
     div.style.top = `${rowIndex * rowHeight}px`;
     div.style.left = `${this.srollWidth}px`;
     div.style.position = "absolute";
