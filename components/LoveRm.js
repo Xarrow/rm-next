@@ -20,7 +20,7 @@ class LoveRm extends React.Component {
                     {/*    回调等待 websocket 连接完成*/}
                     <BulletWrapper onWebSocketOpen={this.setWebSocketState}/>
                     {/* 键入文件组件*/}
-                    <TypeLoveComponent/>
+                    { this.state.wsOpen?<TypeLoveComponent/>:<></>}
                 </Spin>
 
             </div>
