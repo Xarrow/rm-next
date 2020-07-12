@@ -51,8 +51,8 @@ export default class BulletWrapper extends React.Component {
     }
 
     happyWork() {
-        // this.ws = new WebSocket("wss://rm2springboot.herokuapp.com/launch");
-        this.ws = new WebSocket("ws://127.0.0.1:8080/launch");
+        this.ws = new WebSocket("wss://rm2springboot.herokuapp.com/launch");
+        // this.ws = new WebSocket("ws://127.0.0.1:8080/launch");
         this.ws.onopen = (data) => {
             // 清楚重试
             if (null != retryInterval || undefined !== retryInterval) {
@@ -67,7 +67,10 @@ export default class BulletWrapper extends React.Component {
             // 心跳
             this.heartbeart()
             // 回调
-            this.props.onWebSocketOpen({wsOpen: true})
+            // 完全延迟展示效果
+            setTimeout(() => {
+                this.props.onWebSocketOpen({wsOpen: true})
+            }, 3000)
         };
 
         this.ws.onclose = (event) => {

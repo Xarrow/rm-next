@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import ReactDOM from "react-dom";
-import { DH_NOT_SUITABLE_GENERATOR } from "constants";
 
 interface BulletProps {
   renderItem: (item: any) => React.ReactElement;

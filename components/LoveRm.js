@@ -16,7 +16,7 @@ class LoveRm extends React.Component {
     render() {
         return (
             <div>
-                <Spin className={"spin"} tip="玩命加载中..." size={"large"} spinning={!this.state.wsOpen}>
+                <Spin className={"spin"} tip="玩命连接爱心❤服务器..." size={"large"} spinning={!this.state.wsOpen}>
                     {/*    回调等待 websocket 连接完成*/}
                     <BulletWrapper onWebSocketOpen={this.setWebSocketState}/>
                     {/* 键入文件组件*/}

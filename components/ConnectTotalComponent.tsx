@@ -1,0 +1,19 @@
+import React from 'react'
+
+export interface Props {
+    name: string
+    age: number
+}
+
+function Hello({name = "zhangsan", age = 12}: Props) {
+    return (
+        <>
+            <div className={"Hello"}>
+                Hello {name} {age}
+            </div>
+        </>
+    )
+
+}
+
+export default Hello
