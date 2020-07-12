@@ -19,7 +19,7 @@ export default class TypeLoveComponent extends React.Component {
             '<span class="rm">我 ! ! !</span>',
             '<span class="rm">无所畏惧</span>',
             '<span class="rm">一往无前</span>',
-            '<span class="rm"><span class="wo">我<span class="ai bigger"> 喜欢 </span>你,瑞梅\n</span><span class="rmEn"><span class="ai">Stay</span> With You\nForever !</span>'
+            '<span class="rm"><span class="wo">我<span class="ai bigger"> 爱 </span>你,瑞梅\n</span><span class="rmEn"><span class="ai">Stay</span> With You\nForever !</span>'
         ];
         const options = {
             strings: strings,
