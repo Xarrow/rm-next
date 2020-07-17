@@ -4,6 +4,7 @@ import Typed from "typed.js";
 export default class TypeLoveComponent extends React.Component {
     componentDidMount() {
         const strings = [
+            '<span class="rm"/>',
             '<span class="rm">一朝一夕<img src="/static/img/sun.png" alt=""/></span>',
             '<span class="rm">一朝一夕<img src="/static/img/sun.png" alt=""/>\n从<span class="sinian bigger">「 思念 」</span>中\n结束</span>',
             '<span class="rm">一朝一夕<img src="/static/img/sun.png" alt=""/>\n由思念中\n<span class="kaishi bigger">「 开始 」</span></span>',
