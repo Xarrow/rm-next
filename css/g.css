@@ -1,4 +1,4 @@
-html ,body{
+html, body {
     height: 100%;
     width: 100%;
 }
@@ -12,9 +12,20 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-div.container {
+div.mainContainer {
     display: flex;
     justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    position: absolute;
+    margin: 10px;
+    width: 98%;
+    height: 700px;
+    font-size: 50px;
+}
+
+div.subContainer {
+    display: flex;
+    justify-content: left; /* 左侧 */
     align-items: center; /* 垂直居中 */
     position: absolute;
     margin: 10px;
@@ -67,26 +78,27 @@ div.launch {
     width: 90%;
 }
 
-.spin{
+.spin {
     z-index: 9999;
-    position:absolute;
+    position: absolute;
     margin-top: 25%;
 }
 
-/* div.item{
-    font-size: 14px;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.5);
-    line-height: 24px;
-    height: 24px;
-    padding: 0px 12px;
-    border-radius: 12px;
-  
-} */
 div.Ant {
     display: flex;
     justify-content: center; /* 水平居中 */
     align-items: center; /* 垂直居中 */
+}
+
+div.RmImage {
+    /*position: absolute;*/
+    /*z-index: 9997;*/
+    /*margin-left: 50px;*/
+}
+
+.crossfadeImage {
+    width: 400px;
+    height: 400px;
 }
 
 /*@import url('https://g.zeit.fun/fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap');*/
@@ -177,3 +189,5 @@ svg.github-svg {
         animation: octocat-wave 560ms ease-in-out
     }
 }
+
+
