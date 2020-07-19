@@ -1,5 +1,5 @@
 import RmImageComponent from "../components/RmImageComponent";
-
+import BGMComponent from "../components/BGMComponent";
 const ts = () => {
     return (
         <>
@@ -23,6 +23,7 @@ const ts = () => {
                         <div className="star indigo"></div>
                     </div>
                 </div>
+                <BGMComponent />
             </div>
         </>
     )

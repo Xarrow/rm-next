@@ -11,6 +11,13 @@ export default class BGMComponent extends React.Component {
     render() {
         return (
             <>
+                <video
+                    onProgress={(event) => {
+                        console.log(event)
+                    }}
+                    onCanPlay={() => {
+                        console.log("can play")
+                    }} controls src={"/static/audio/canon.mp3"} autoPlay muted loop={true} preload="auto"/>
             </>
         )
     }
