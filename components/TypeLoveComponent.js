@@ -1,11 +1,19 @@
 import React from 'react'
 import Typed from "typed.js";
-import RmImageComponent from "./RmImageComponent";
 
 export default class TypeLoveComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            mClient: true
+        }
+    }
+
     componentDidMount() {
+        const isMClient = navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf(`Android`) > -1
+
         const strings = [
-            // '<span class="rm"/>',
+            '<span class="rm"/>',
             '<span class="rm">一朝一夕<img src="/static/img/sun.png" alt=""/></span>',
             '<span class="rm">一朝一夕<img src="/static/img/sun.png" alt=""/>\n从<span class="sinian bigger">「 思念 」</span>中\n结束</span>',
             '<span class="rm">一朝一夕<img src="/static/img/sun.png" alt=""/>\n由思念中\n<span class="kaishi bigger">「 开始 」</span></span>',
@@ -21,7 +29,7 @@ export default class TypeLoveComponent extends React.Component {
             '<span class="rm">我 ~</span>',
             '<span class="rm">无所畏惧</span>',
             '<span class="rm">一往无前</span>',
-            '<span class="rm"><span class="wo">我<span class="ai bigger"> 喜欢 </span>你,瑞梅\n</span><span class="rmEn"><span class="ai">Stay</span> With You\nForever !</span>'
+            `<span class="rm"><span class="wo">我<span class="ai bigger">「喜欢」</span>${isMClient ? "\n" : ""}你,瑞梅\n</span><span class="rmEn"><span class="ai">Stay</span> With You\nForever !</span>`
         ];
         const options = {
             strings: strings,

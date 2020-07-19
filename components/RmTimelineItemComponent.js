@@ -1,4 +1,4 @@
-import { Timeline,Row, Col, Divider } from 'antd';
+import {Col, Row, Timeline} from 'antd';
 
 const RmTimelineItemComponent  =(props)=> {
   const index =  props.index;

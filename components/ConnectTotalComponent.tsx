@@ -1,5 +1,4 @@
 import React from 'react'
-import {rewriteUrlForNextExport} from "next/dist/next-server/lib/router/rewrite-url-for-export";
 
 export interface Props {
     name: string

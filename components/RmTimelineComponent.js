@@ -1,7 +1,7 @@
 // import styles from './TimeLineComponent.css'
-import { Timeline } from 'antd';
+import {Timeline} from 'antd';
 import RmTimelineItemComponent from './RmTimelineItemComponent';
-import { data } from './data.js';
+import {data} from './data.js';
 
 export default function RmTimelineComponent(props ,){
   console.log(data)

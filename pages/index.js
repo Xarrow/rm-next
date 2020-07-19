@@ -1,9 +1,9 @@
 import React from 'react';
 import Head from 'next/head'
-import { Modal, Button, Form, Input, message } from 'antd';
+import {Button, Form, Input, message, Modal} from 'antd';
 import LoveRm from '../components/LoveRm';
-import BullectWrapper from '../components/BulletWrapper';
 import GithubBranch from '../components/GithubBranch';
+import StarComponent from "../components/StarComponent";
 
 class Ant extends React.Component {
     constructor(props) {
@@ -41,6 +41,7 @@ class Ant extends React.Component {
                     <title>健❤瑞梅</title>
                 </Head>
                 <GithubBranch />
+                <StarComponent />
                 <div>
                     {this.state.auth ? (
                         <LoveRm />

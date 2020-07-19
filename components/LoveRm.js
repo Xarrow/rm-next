@@ -20,7 +20,7 @@ class LoveRm extends React.Component {
                 <Spin className={"spin"} tip="玩命连接爱心❤服务器..." size={"large"} spinning={!this.state.wsOpen}>
                     {/* 图片*/}
                     {this.state.wsOpen ? <div className="subContainer">
-                        <RmImageComponent/></div> : <></>}
+                        <RmImageComponent/></div> : <></ >}
                     {/*    回调等待 websocket 连接完成*/}
                     <BulletWrapper onWebSocketOpen={this.setWebSocketState}/>
                     {/* typejs*/}

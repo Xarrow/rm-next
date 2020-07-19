@@ -1,6 +1,5 @@
 import React, {PureComponent} from "react";
 import CrossfadeImage from './CrossfadeImage2';
-import {UserAgent, UserAgentProvider} from '@quentin-sommer/react-useragent'
 
 
 const image_list = [
@@ -14,29 +13,33 @@ class RmImageComponent extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            imgSrc: image_list[0]
+            imgSrc: image_list[0],
+            mClient: false // 是否是M端，M端作为背景 ， PC 端展示在左侧
         }
 
     }
 
 
     componentDidMount() {
+        const isMClient = navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf(`Android`) > -1
+        console.log("isMClient " + isMClient)
+        this.setState({mClient: isMClient})
+
         let index = 0;
         setInterval(() => {
             if (index === image_list.length) {
                 index = 0
             }
             this.setState({imgSrc: image_list[index++]})
-        }, 5000)
+        }, 7000)
     }
 
     render() {
-
         return (
-            <div className="RmImage">
+            <div className={this.state.mClient ? "MClientRmImage" : "RmImage"}>
                 <CrossfadeImage
-                    delay={0}
-                    src={this.state.imgSrc} alt={"cr"}/>
+                    delay={7}
+                    src={this.state.imgSrc} alt={"yuruimei"}/>
             </div>
         );
     }

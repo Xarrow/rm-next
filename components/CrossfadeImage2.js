@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 
 export default class CrossfadeImage extends Component {
@@ -6,10 +6,11 @@ export default class CrossfadeImage extends Component {
         super(props);
         this.state = {
             topSrc: props.src,
-            bottomOpacity: 0,
+            bottomOpacity: 0.2,
             bottomSrc: props.src
         };
     }
+
     componentWillReceiveProps(newProps) {
         const oldSrc = this.state.topSrc;
         const newSrc = newProps.src;
@@ -61,7 +62,7 @@ export default class CrossfadeImage extends Component {
     }
 }
 
-const defaultStyle = { maxWidth: "400px", maxHeight: "400px" };
+const defaultStyle = { maxWidth: "400px", maxHeight: "300px" };
 
 CrossfadeImage.propTypes = {
     src: PropTypes.string.isRequired,
