@@ -59,8 +59,8 @@ export default class BulletWrapper extends React.Component {
     }
 
     happyWork() {
-        // this.ws = new WebSocket("wss://rm2springboot.herokuapp.com/launch");
-        this.ws = new WebSocket("ws://127.0.0.1:8080/launch");
+        this.ws = new WebSocket("wss://rm2springboot.herokuapp.com/launch");
+        // this.ws = new WebSocket("ws://127.0.0.1:8080/launch");
         this.ws.onopen = (data) => {
             // 清楚重试
             if (null != retryInterval || undefined !== retryInterval) {
