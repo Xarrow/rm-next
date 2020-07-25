@@ -24,11 +24,11 @@ let reconnectFlag = false
 export default class BulletWrapper extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {word: "", row: 13};
+        this.state = {word: "", row: 13, clientInfo: {}};
         this.print = this.print.bind(this);
         this.launch = this.launch.bind(this);
         this.handleMessage = this.handleMessage.bind(this);
-        this.heartbeart = this.heartbeart.bind(this)
+        this.heartbeat = this.heartbeat.bind(this)
         this.happyWork = this.happyWork.bind(this)
         this.proxySend = this.proxySend.bind(this)
 
@@ -36,9 +36,17 @@ export default class BulletWrapper extends React.Component {
     }
 
     componentDidMount() {
+        const now = new Date();
+        const clientInfo = {
+            topic: `YURUIMEI`,
+            startTime: `${now.getFullYear()}-${now.getMonth()}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+            platform: navigator.platform,
+            userAgent: navigator.userAgent,
+        }
+
         this.happyWork()
         // 记录页面打开时间
-        this.setState({startTimeStamp: new Date().getTime()});
+        this.setState({startTimeStamp: new Date().getTime(), clientInfo: clientInfo});
     }
 
     proxySend(type, timeline, words) {
@@ -51,21 +59,21 @@ export default class BulletWrapper extends React.Component {
     }
 
     happyWork() {
-        this.ws = new WebSocket("wss://rm2springboot.herokuapp.com/launch");
-        // this.ws = new WebSocket("ws://127.0.0.1:8080/launch");
+        // this.ws = new WebSocket("wss://rm2springboot.herokuapp.com/launch");
+        this.ws = new WebSocket("ws://127.0.0.1:8080/launch");
         this.ws.onopen = (data) => {
             // 清楚重试
             if (null != retryInterval || undefined !== retryInterval) {
                 clearInterval(retryInterval);
                 retryInterval = undefined;
             }
-            // 初始化
-            this.proxySend(INIT, 0, "")
+            // 初始化, 带上客户端信息
+            this.proxySend(INIT, 0, JSON.stringify(this.state.clientInfo))
             console.log("ws open")
             // 监听消息
             this.handleMessage()
             // 心跳
-            this.heartbeart()
+            this.heartbeat()
             // 回调
             // 完全延迟展示效果
             setTimeout(() => {
@@ -99,7 +107,7 @@ export default class BulletWrapper extends React.Component {
         });
     }
 
-    heartbeart() {
+    heartbeat() {
         setInterval(() => {
             this.proxySend(HEARTBEAT, 0, "")
         }, 7000)
