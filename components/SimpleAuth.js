@@ -1,5 +1,6 @@
 function Auth() {
-    const storage = window.localStorage.getItem("auth");
+    //const storage = window.localStorage.getItem("auth");
+    const storage = '1';
     if (undefined === storage) {
         return false;
     }
